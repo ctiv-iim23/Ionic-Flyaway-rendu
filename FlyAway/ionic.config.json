@@ -1,0 +1,7 @@
+{
+  "name": "Flyaway",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
