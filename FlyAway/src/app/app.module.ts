@@ -16,6 +16,7 @@ import {AngularFireAuthModule} from "@angular/fire/auth";
 import {RegisterComponent} from "./register/register.component";
 import {MovieComponent} from "./movie/movie.component";
 import {AngularFirestoreModule} from "@angular/fire/firestore";
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {AngularFirestoreModule} from "@angular/fire/firestore";
       HomePageComponent,
       RegisterComponent,
       MovieComponent,
+      LoginComponent,
   ],
   entryComponents: [],
   imports: [

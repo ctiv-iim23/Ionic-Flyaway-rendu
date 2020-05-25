@@ -10,42 +10,21 @@ import {AngularFireAuth} from "@angular/fire/auth";
 export class HomePageComponent implements OnInit
 {
 
-  email     : string;
-  password  : string;
+  
 
   constructor(public router: Router, public afAuth: AngularFireAuth) { }
 
   ngOnInit()
-  {
-    this.afAuth.authState.subscribe(user =>
+  {}
+    login()
     {
-      if (user)
+        this.router.navigateByUrl('login');
+     
+    }
+  
+      signin()
       {
-        localStorage.setItem('user', JSON.stringify(user));
-        this.router.navigateByUrl('');
+        this.router.navigateByUrl('register');
       }
-      else
-        {
-          localStorage.setItem('user', null);
-        }
-  });
-
   }
 
-  login()
-  {
-    this.afAuth.auth.signInWithEmailAndPassword(this.email, this.password).then((data) => {
-
-      console.log(`congratulation you're in ! ${data}`);
-    }, (err) => {
-      alert(err);
-    })
-  }
-
-  toRegister()
-  {
-    this.router.navigateByUrl('register').then((data) => {
-      console.log(data);
-    });
-  }
-}
