@@ -1,37 +1,51 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
+import {Router} from "@angular/router";
+import {AngularFireAuth} from "@angular/fire/auth";
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent implements OnInit
+{
 
-  milo:string;
-  miloArray: string[] = [] ;
+  email     : string;
+  password  : string;
 
-  constructor(public router: Router) { }
+  constructor(public router: Router, public afAuth: AngularFireAuth) { }
 
-  ngOnInit() {}
-
- addToArray()
+  ngOnInit()
   {
-    this.miloArray.push(this.milo);
-    this.milo='';
-    
-
+    this.afAuth.authState.subscribe(user =>
+    {
+      if (user)
+      {
+        localStorage.setItem('user', JSON.stringify(user));
+        this.router.navigateByUrl('');
+      }
+      else
+        {
+          localStorage.setItem('user', null);
+        }
+  });
 
   }
 
-  remove(i) {
-    this.miloArray.splice(i, 1);
-  }
-  
-  goToDetails()
+  login()
   {
-  this.router.navigateByUrl('details');
+    this.afAuth.auth.signInWithEmailAndPassword(this.email, this.password).then((data) => {
 
+      console.log(`congratulation you're in ! ${data}`);
+    }, (err) => {
+      alert(err);
+    })
+  }
+
+  toRegister()
+  {
+    this.router.navigateByUrl('register').then((data) => {
+      console.log(data);
+    });
   }
 }

@@ -1,0 +1,9 @@
+<ion-toolbar>
+  <ion-title>Movie</ion-title>
+</ion-toolbar>
+<ion-content>
+  <ion-button (click)="logOut()" >logout</ion-button>
+  <ion-card *ngFor="let movie of movies">
+    {{movie.name}}
+  </ion-card>
+</ion-content>
