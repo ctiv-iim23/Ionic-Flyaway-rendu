@@ -1,7 +1,7 @@
 {
-  "name": "Flyaway",
+  "name": "todolist",
   "integrations": {
-    "capacitor": {}
+    "cordova": {}
   },
   "type": "angular"
 }
