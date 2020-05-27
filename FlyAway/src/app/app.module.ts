@@ -14,17 +14,18 @@ import { config } from './firebase';
 import { AngularFireModule                } from '@angular/fire';
 import {AngularFireAuthModule} from "@angular/fire/auth";
 import {RegisterComponent} from "./register/register.component";
-import {MovieComponent} from "./movie/movie.component";
+
 import {AngularFirestoreModule} from "@angular/fire/firestore";
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
       AppComponent,
       HomePageComponent,
       RegisterComponent,
-      MovieComponent,
       LoginComponent,
+      HomeComponent,
   ],
   entryComponents: [],
   imports: [
